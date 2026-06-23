@@ -1,0 +1,47 @@
+:root{
+    --bg-main:#0f172a;
+    --bg-card:#1f2938;
+    --bg-menu:#111827;
+
+    --text:#f9fafb;
+    --text-muted:#9ca3af;
+
+    --primary:#06b6d4;
+    --success:#22c55e;
+    --warning:#eab308;
+    --danger:#ef4444;
+
+    --border:#374151;
+}
+
+body{
+    background:var(--bg-main);
+    color:var(--text);
+    font-family:'Segoe UI', Tahoma, Verdana, sans-serif;
+}
+
+.navbar{
+    background: var(--bg-menu)!important;
+    border-bottom: 1px solid var(--border);
+    border-radius: 15px;
+}
+
+.card-dark:hover{
+    transform:translateY(-3px);
+    transistion: 0.3s;
+}
+
+.card-number{
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.table-dark-custom{
+    background: var(--bg-card);
+    color:white;
+}
+
+.btn-primary{
+    background: var(--primary);
+    border: none;
+}
