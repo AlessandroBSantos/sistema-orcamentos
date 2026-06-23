@@ -2,8 +2,8 @@
 
 $host = "localhost";
 $banco = "ales7542_orcamentos";
-$usuario = "ales7542_orcamentos_user";
-$senha = "#Anjin2305!";
+$usuario = "ales7542_orcamento_user";ale
+$senha = "#Lincon@22062023!";
 
 try {
 
