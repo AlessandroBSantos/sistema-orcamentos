@@ -3,7 +3,7 @@
 $host = "localhost";
 $banco = "ales7542_orcamentos";
 $usuario = "ales7542_orcamento_user";
-$senha = "#Lincon@22062023!";
+$senha = "nacmb=K<#jj^zCZseHqDbjDyn4UXdNbr";
 
 try {
 
