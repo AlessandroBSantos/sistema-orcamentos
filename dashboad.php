@@ -1,139 +1,186 @@
 <?php
-
 session_start();
+require 'config/conexao.php';
 
-include '../includes/header.php';
-include '../includes/menu.php';
+if(isset($_SESSION['usuario_id'])){
+    header("Location: dashboard.php");
+    exit;
+}
 
+$erro = '';
+
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+    $email = trim($_POST['email']);
+    $senha = trim($_POST['senha']);
+
+    $sql = "SELECT * FROM usuarios WHERE email = ?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$email]);
+
+    $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if($usuario){
+
+        // TESTE COM SENHA EM TEXTO
+        if($senha == $usuario['senha']){
+
+            $_SESSION['usuario_id'] = $usuario['id'];
+            $_SESSION['usuario_nome'] = $usuario['nome'];
+            $_SESSION['usuario_email'] = $usuario['email'];
+
+            header("Location: dashboard.php");
+            exit;
+
+        }
+    }
+
+    $erro = "Usuário ou senha inválidos";
+}
 ?>
 
-<div class="container mt-4">
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
 
-<h2 class="mb-4">
-Painel de Orçamentos
-</h2>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<div class="row">
+<title>LLA Software - Sistema de OS</title>
 
-<div class="col-md-3">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
 
-<div class="card card-dark p-3">
+<style>
 
-<h6>Orçamentos</h6>
+body{
+    background: linear-gradient(135deg,#0f172a,#1e293b);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
 
-<div class="card-number">
-0
-</div>
+.login-card{
+    width:100%;
+    max-width:450px;
+    border:none;
+    border-radius:20px;
+}
 
-</div>
+.logo{
+    font-size:60px;
+    color:#0d6efd;
+}
 
-</div>
+.card-body{
+    padding:40px;
+}
 
-<div class="col-md-3">
+.btn-login{
+    height:55px;
+    font-size:18px;
+    font-weight:600;
+}
 
-<div class="card card-dark p-3">
+</style>
 
-<h6>Aprovados</h6>
+</head>
 
-<div class="card-number text-success">
-0
-</div>
+<body>
 
-</div>
+<div class="card shadow-lg login-card">
 
-</div>
+    <div class="card-body">
 
-<div class="col-md-3">
+        <div class="text-center mb-4">
 
-<div class="card card-dark p-3">
+            <i class="fa-solid fa-screwdriver-wrench logo"></i>
 
-<h6>Pendentes</h6>
+            <h2 class="mt-3">
+                Sistema de OS
+            </h2>
 
-<div class="card-number text-warning">
-0
-</div>
+            <p class="text-muted">
+                LLA Software
+            </p>
 
-</div>
+        </div>
 
-</div>
+        <?php if(!empty($erro)): ?>
 
-<div class="col-md-3">
+            <div class="alert alert-danger">
+                <?= $erro ?>
+            </div>
 
-<div class="card card-dark p-3">
+        <?php endif; ?>
 
-<h6>Reprovados</h6>
+        <form method="POST">
 
-<div class="card-number text-danger">
-0
-</div>
+            <div class="mb-3">
 
-</div>
+                <label class="form-label">
+                    E-mail
+                </label>
 
-</div>
+                <div class="input-group">
 
-</div>
+                    <span class="input-group-text">
+                        <i class="fa fa-envelope"></i>
+                    </span>
 
-<div class="row mt-4">
+                    <input
+                        type="email"
+                        name="email"
+                        class="form-control"
+                        required>
 
-<div class="col-md-8">
+                </div>
 
-<div class="card card-dark p-3">
+            </div>
 
-<h5>Orçamentos Recentes</h5>
+            <div class="mb-4">
 
-<table class="table table-dark">
+                <label class="form-label">
+                    Senha
+                </label>
 
-<thead>
+                <div class="input-group">
 
-<tr>
+                    <span class="input-group-text">
+                        <i class="fa fa-lock"></i>
+                    </span>
 
-<th>Código</th>
-<th>Cliente</th>
-<th>Valor</th>
-<th>Status</th>
+                    <input
+                        type="password"
+                        name="senha"
+                        class="form-control"
+                        required>
 
-</tr>
+                </div>
 
-</thead>
+            </div>
 
-<tbody>
+            <button
+                type="submit"
+                class="btn btn-primary w-100 btn-login">
 
-<tr>
+                <i class="fa fa-right-to-bracket"></i>
+                Entrar
 
-<td>ORC-001</td>
-<td>Cliente Teste</td>
-<td>R$ 1.500,00</td>
-<td>
-<span class="badge bg-success">
-Aprovado
-</span>
-</td>
+            </button>
 
-</tr>
+        </form>
 
-</tbody>
+        <div class="text-center mt-4">
 
-</table>
+            <small class="text-muted">
+                Versão 1.0
+            </small>
 
-</div>
+        </div>
 
-</div>
-
-<div class="col-md-4">
-
-<div class="card card-dark p-3">
-
-<h5>Atividades</h5>
-
-<p>
-Sistema iniciado com sucesso.
-</p>
-
-</div>
-
-</div>
-
-</div>
+    </div>
 
 </div>
 
