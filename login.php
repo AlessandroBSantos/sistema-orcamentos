@@ -1,46 +1,56 @@
 <?php
 session_start();
-require 'config/conexao.php';
+require_once 'config/conexao.php';
 
-if(isset($_SESSION['usuario_id'])){
-    header("Location: dashboard.php");
+// Se já estiver logado
+if (isset($_SESSION['usuario_id'])) {
+    header('Location: dashboard.php');
     exit;
 }
 
 $erro = '';
 
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $email = trim($_POST['email']);
-    $senha = trim($_POST['senha']);
+    $email = trim($_POST['email'] ?? '');
+    $senha = trim($_POST['senha'] ?? '');
 
-    $sql = "SELECT * FROM usuarios WHERE email = ?";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([$email]);
+    try {
 
-    $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+        $sql = "SELECT * FROM usuarios WHERE email = ?";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$email]);
 
-    if($usuario){
+        $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        // TESTE COM SENHA EM TEXTO
-        if($senha == $usuario['senha']){
+        if ($usuario) {
 
-            $_SESSION['usuario_id'] = $usuario['id'];
-            $_SESSION['usuario_nome'] = $usuario['nome'];
-            $_SESSION['usuario_email'] = $usuario['email'];
+            // SENHA EM TEXTO (temporário)
+            if ($senha === $usuario['senha']) {
 
-            header("Location: dashboard.php");
-            exit;
+                session_regenerate_id(true);
 
+                $_SESSION['usuario_id'] = $usuario['id'];
+                $_SESSION['usuario_nome'] = $usuario['nome'];
+                $_SESSION['usuario_email'] = $usuario['email'];
+
+                header('Location: dashboard.php');
+                exit;
+            }
         }
-    }
 
-    $erro = "Usuário ou senha inválidos";
+        $erro = 'Usuário ou senha inválidos';
+
+    } catch (Exception $e) {
+
+        $erro = 'Erro ao processar login';
+    }
 }
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
 
 <meta charset="UTF-8">
@@ -66,15 +76,16 @@ body{
     max-width:450px;
     border:none;
     border-radius:20px;
+    overflow:hidden;
+}
+
+.card-body{
+    padding:40px;
 }
 
 .logo{
     font-size:60px;
     color:#0d6efd;
-}
-
-.card-body{
-    padding:40px;
 }
 
 .btn-login{
@@ -107,10 +118,10 @@ body{
 
         </div>
 
-        <?php if(!empty($erro)): ?>
+        <?php if (!empty($erro)): ?>
 
             <div class="alert alert-danger">
-                <?= $erro ?>
+                <?= htmlspecialchars($erro) ?>
             </div>
 
         <?php endif; ?>
