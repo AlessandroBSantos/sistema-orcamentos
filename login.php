@@ -1,52 +1,88 @@
 <?php
 session_start();
+require 'config/conexao.php';
+
+if(isset($_SESSION['usuario_id'])){
+    header("Location: dashboard.php");
+    exit;
+}
+
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+
+    $sql = "SELECT * FROM usuarios WHERE email = ?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$email]);
+
+    $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if($usuario){
+
+        if(password_verify($senha, $usuario['senha'])){
+
+            $_SESSION['usuario_id'] = $usuario['id'];
+            $_SESSION['usuario_nome'] = $usuario['nome'];
+            $_SESSION['usuario_email'] = $usuario['email'];
+
+            header("Location: dashboard.php");
+            exit;
+
+        }
+
+    }
+
+    $erro = "Usuário ou senha inválidos";
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LLA Software - Ordem de Serviço</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+<title>LLA Software - Ordem de Serviço</title>
 
-    <style>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
 
-        body{
-            background: linear-gradient(135deg,#0f172a,#1e293b);
-            height:100vh;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-        }
+<style>
 
-        .login-card{
-            width:100%;
-            max-width:420px;
-            border:none;
-            border-radius:20px;
-            overflow:hidden;
-        }
+body{
+    background: linear-gradient(135deg,#0f172a,#1e293b);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
 
-        .logo{
-            font-size:55px;
-            color:#0d6efd;
-        }
+.login-card{
+    width:100%;
+    max-width:420px;
+    border:none;
+    border-radius:20px;
+    overflow:hidden;
+}
 
-        .card-body{
-            padding:40px;
-        }
+.logo{
+    font-size:55px;
+    color:#0d6efd;
+}
 
-        .btn-login{
-            height:50px;
-            font-size:18px;
-        }
+.card-body{
+    padding:40px;
+}
 
-    </style>
+.btn-login{
+    height:50px;
+    font-size:18px;
+}
+
+</style>
 
 </head>
 
@@ -54,97 +90,92 @@ session_start();
 
 <div class="card shadow-lg login-card">
 
-    <div class="card-body">
+<div class="card-body">
 
-        <div class="text-center mb-4">
+<div class="text-center mb-4">
 
-            <i class="fa-solid fa-screwdriver-wrench logo"></i>
+<i class="fa-solid fa-screwdriver-wrench logo"></i>
 
-            <h3 class="mt-3">
-                Sistema de OS
-            </h3>
+<h3 class="mt-3">Sistema de OS</h3>
 
-            <small class="text-muted">
-                LLA Software
-            </small>
+<small class="text-muted">LLA Software</small>
 
-        </div>
+</div>
 
-        <?php if(isset($_GET['erro'])): ?>
+<?php if(isset($erro)): ?>
 
-            <div class="alert alert-danger">
-                Usuário ou senha inválidos
-            </div>
+<div class="alert alert-danger">
+    <?= $erro ?>
+</div>
 
-        <?php endif; ?>
+<?php endif; ?>
 
-        <form method="POST" action="index.php">
+<form method="POST">
 
-            <div class="mb-3">
+<div class="mb-3">
 
-                <label class="form-label">
-                    E-mail
-                </label>
+<label class="form-label">
+    E-mail
+</label>
 
-                <div class="input-group">
+<div class="input-group">
 
-                    <span class="input-group-text">
-                        <i class="fa fa-envelope"></i>
-                    </span>
+<span class="input-group-text">
+    <i class="fa fa-envelope"></i>
+</span>
 
-                    <input
-                        type="email"
-                        name="email"
-                        class="form-control"
-                        required>
+<input
+type="email"
+name="email"
+class="form-control"
+required>
 
-                </div>
+</div>
 
-            </div>
+</div>
 
-            <div class="mb-4">
+<div class="mb-4">
 
-                <label class="form-label">
-                    Senha
-                </label>
+<label class="form-label">
+    Senha
+</label>
 
-                <div class="input-group">
+<div class="input-group">
 
-                    <span class="input-group-text">
-                        <i class="fa fa-lock"></i>
-                    </span>
+<span class="input-group-text">
+    <i class="fa fa-lock"></i>
+</span>
 
-                    <input
-                        type="password"
-                        name="senha"
-                        class="form-control"
-                        required>
+<input
+type="password"
+name="senha"
+class="form-control"
+required>
 
-                </div>
+</div>
 
-            </div>
+</div>
 
-            <button
-                type="submit"
-                class="btn btn-primary w-100 btn-login">
+<button
+type="submit"
+class="btn btn-primary w-100 btn-login">
 
-                <i class="fa fa-right-to-bracket"></i>
+<i class="fa fa-right-to-bracket"></i>
+Entrar
 
-                Entrar
+</button>
 
-            </button>
+</form>
 
-        </form>
+<div class="text-center mt-4">
 
-        <div class="text-center mt-4">
+<small class="text-muted">
+Versão 1.0
+</small>
 
-            <small class="text-muted">
-                Versão 1.0
-            </small>
+</div>
 
-        </div>
-
-    </div>
+</div>
 
 </div>
 
