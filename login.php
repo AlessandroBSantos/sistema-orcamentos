@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($usuario) {
 
             // SENHA EM TEXTO (temporário)
-            if ($senha === $usuario['senha']) {
+            if(password_verify($senha, $usuario['senha'])){
 
                 session_regenerate_id(true);
 
