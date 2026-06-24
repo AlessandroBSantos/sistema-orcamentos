@@ -81,7 +81,14 @@ body{
     position:fixed;
     left:0;
     top:0;
+    transition:all .3s ease;
+    z-index:1000;
 }
+
+.sidebar.oculto{
+    ledt:-250px;
+}
+
 
 .logo{
     padding:20px;
@@ -112,9 +119,31 @@ body{
     background:#334155;
 }
 
+.menu-toggle{
+    position:fixed;
+    top:15px;
+    left:15px;
+    z-index: index 1100;
+
+    border:none;
+    background: var(--azul);
+    color:white;
+
+    width: 45px;
+    height:35px;
+
+    border-radius:10px;
+    cursos:pointer;
+}
+
 .content{
     margin-left:250px;
     padding:30px;
+    transition:all .3s ease;
+}
+
+.content.expandido{
+    mardin-left:0;
 }
 
 .card-dashboard{
@@ -155,6 +184,9 @@ body{
 </head>
 
 <body>
+    <button class="menu-toggle" onclick="toggleMenu()">
+        <i class="fa fa-bars"></i>
+    </button>
 
 <div class="sidebar">
 
@@ -327,4 +359,19 @@ body{
 </div>
 
 </body>
+
+<script>
+
+    function toggleMenu(){
+        const sidebar =
+        document.querySelector('.sidebar');
+        const content =
+        document.querySelector('content');
+
+        sidebar.classList.toggle('oculto');
+        content.classList.toggle('expandido');
+    }
+
+</script>
+
 </html>
