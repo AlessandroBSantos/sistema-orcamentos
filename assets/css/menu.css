@@ -28,10 +28,19 @@
 }
 
 .content{
-    transition:.3s;
+    padding:30px;
+    transition:all .3s ease;
     margin-left:0;
 }
 
 .content.menu-aberto{
     margin-left:250px;
+}
+
+@media(max-width:768px){
+
+    .content.menu-aberto{
+        margin-left:0;
+    }
+
 }

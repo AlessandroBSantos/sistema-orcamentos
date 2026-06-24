@@ -67,12 +67,10 @@ body{
     padding:30px;
     transition:all .3s ease;
     margin-left:0;
-    width:100%;
 }
 
 .content.menu-aberto{
     margin-left:250px;
-    width:calc(100% - 250px);
 }
 @media(max-width:768px){
 
