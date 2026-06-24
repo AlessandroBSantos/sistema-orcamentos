@@ -1,12 +1,11 @@
 function toggleMenu(){
 
-    const sidebar = document.getElementById('sidebar');
-    const content = document.getElementById('content');
+    document
+        .getElementById('sidebar')
+        .classList.toggle('ativo');
 
-    sidebar.classList.toggle('ativo');
-
-    if(content){
-        content.classList.toggle('menu-aberto');
-    }
+    document
+        .getElementById('content')
+        .classList.toggle('menu-aberto');
 
 }
