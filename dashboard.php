@@ -1,7 +1,4 @@
 <?php
-
-echo "CARREGANDO MENU";
-
 include 'includes/menu.php';
 
 ?>

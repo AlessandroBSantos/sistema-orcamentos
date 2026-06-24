@@ -1,5 +1,4 @@
-<div class="sidebar" id="sidebar">
-    
+<div class="sidebar" id="sidebar"> 
     <div class="logo">
         <button class="menu-toggle" onclick="toggleMenu()">
             <i class="fa fa-bars"></i>
