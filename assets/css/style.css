@@ -1,18 +1,13 @@
 :root{
 
-    --bg:#0B1120;
-    --sidebar:#111827;
-    --card:#1E293B;
+--bg:#0B1120;
+--sidebar:#111827;
+--card:#1A2332;
 
-    --text:#F8FAFC;
-    --text-secondary:#94A3B8;
-
-    --primary:#38BDF8;
-    --success:#22C55E;
-    --warning:#F59E0B;
-    --danger:#EF4444;
-
-    --border:#334155;
+--primary:#22D3EE;
+--success:#22C55E;
+--warning:#F59E0B;
+--danger:#EF4444;
 }
 
 /* ===== BODY ===== */
@@ -28,9 +23,21 @@ body{
     font-family:'Segoe UI',sans-serif;
 }
 
+.sidebar{
+    background:#111827;
+    border-right:1px solid #1E293B;
+}
+
+
 /* ===== CONTEUDO ===== */
 
+.logo{
+    border-bottom:1px solid #1E293B;
+}
 .content{
+    min-height:100vh;
+    background:#0B1120;
+
     padding:30px;
     transition:.3s;
 }
@@ -65,22 +72,16 @@ body{
 
 .card-info{
 
-    background:linear-gradient(
-        145deg,
-        #1E293B,
-        #111827
-    );
+    background:#111827;
 
-    border:1px solid rgba(255,255,255,.05);
+    border:1px solid #1E293B;
 
-    border-radius:18px;
+    border-radius:20px;
 
-    padding:25px;
-
-    transition:.3s;
+    padding:30px;
 
     box-shadow:
-    0 10px 30px rgba(0,0,0,.30);
+    0 10px 25px rgba(0,0,0,.35);
 }
 
 .card-info:hover{
@@ -127,22 +128,15 @@ body{
 
 .painel{
 
-    margin-top:30px;
+    background:#111827;
 
-    background:linear-gradient(
-        145deg,
-        #1E293B,
-        #111827
-    );
+    border:1px solid #1E293B;
 
     border-radius:20px;
 
-    padding:25px;
+    padding:30px;
 
-    border:1px solid rgba(255,255,255,.05);
-
-    box-shadow:
-    0 10px 30px rgba(0,0,0,.30);
+    margin-top:30px;
 }
 
 .painel h3{
@@ -156,7 +150,9 @@ body{
 
 .table-dark{
 
-    --bs-table-bg:transparent;
+    --bs-table-bg:#111827;
+    --bs-table-striped-bg:#162032;
+    --bs-table-hover-bg:#1E293B;
 }
 
 .table-dark th{
