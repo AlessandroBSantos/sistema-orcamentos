@@ -1,5 +1,13 @@
 <div class="sidebar" id="sidebar">
 
+    <h3>MENU TESTE</h3>
+
+    <a href="#">Dashboard</a>
+    <a href="#">Clientes</a>
+    <a href="#">Produtos</a>
+
+</div>
+
     <div class="logo">
 
         <button class="menu-toggle" onclick="toggleMenu()">
