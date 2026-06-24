@@ -19,7 +19,7 @@
 
 .body{
     background:var(--bg);
-    color:var(--text);
+    color:var(--bg);
     font-family:'Segoe UI',sans-serif;
 }
 
