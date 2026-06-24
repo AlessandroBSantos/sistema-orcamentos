@@ -89,10 +89,10 @@ body{
 }
 
 .logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
     padding:20px;
-    text-align:center;
-    font-size:24px;
-    font-weight:bold;
     border-bottom:1px solid #334155;
 }
 
@@ -119,21 +119,12 @@ body{
 }
 
 .menu-toggle{
-    position:fixed;
-    top:15px;
-    left:15px;
-    z-index:1100;
-
+    border:none;
+    background:#06B6D4;
+    color:white;
     width:45px;
     height:45px;
-
-    border:none;
     border-radius:10px;
-
-    background:var(--azul);
-    color:white;
-
-    cursor:pointer;
 }
 
 .content{
@@ -195,6 +186,9 @@ body{
 <div class="sidebar" id="sidebar">
 
 <div class="logo">
+    <button class="menu-toggle" onclick="toggleMenu()">
+        <i class="fa fa-bars"></i>
+    </button>
     <span>LLA</span> Software
 </div>
 
