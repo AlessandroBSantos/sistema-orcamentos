@@ -1,6 +1,3 @@
-teste menu
-
-
 <div class="sidebar" id="sidebar">
 
     <div class="logo">
