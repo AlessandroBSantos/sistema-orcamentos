@@ -4,13 +4,13 @@
     background:#1E293B;
     position:fixed;
     top:0;
-    left:-250px;
-    transition:.3s;
+    left:-250px; /* ESCONDIDO */
+    transition:.3s ease;
     z-index:1000;
 }
 
 .sidebar.ativo{
-    left:0;
+    left:0; /* VISÍVEL */
 }
 
 .content{
