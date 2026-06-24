@@ -1,9 +1,6 @@
 <?php include 'includes/menu.php'; ?>
 
 <?php
-echo "<!-- MENU CARREGADO -->";
-?>
-<?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 session_start();
@@ -39,7 +36,9 @@ $ultimosOrcamentos = $pdo->query("
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <link rel="stylesheet" href="assets/css/menu.css">
+
+<link rel="stylesheet" href="/sistema-orcamentos/assets/css/menu.css">
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dashboard - LLA Software</title>
@@ -169,6 +168,6 @@ body{
     </div>
 </div>
 </div>
-<script src="assets/js/menu.js"></script>
+<script src="/sistema-orcamentos/assets/js/menu.js"></script>
 </body>
 </html>
