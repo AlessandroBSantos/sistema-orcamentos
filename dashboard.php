@@ -194,7 +194,6 @@ body{
 
 <div class="sidebar" id="sidebar">
 
-```
 <div class="logo">
     <span>LLA</span> Software
 </div>
@@ -237,13 +236,11 @@ body{
     </a>
 
 </div>
-```
 
 </div>
 
 <div class="content" id="content">
 
-```
 <div class="topo">
 
     <h2>
