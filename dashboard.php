@@ -1,10 +1,18 @@
-<?php include 'includes/menu.php'; ?>
+<?php
+
+echo "CARREGANDO MENU";
+
+include 'includes/menu.php';
+
+?>
 
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-session_start();
+
 require_once 'config/conexao.php';
+session_start();
+
 if (!isset($_SESSION['usuario_id'])) {
     header("Location: login.php");
     exit;
