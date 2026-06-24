@@ -1,12 +1,13 @@
-function toggleMenu() {
+function toggleMenu(){
 
     const sidebar = document.getElementById('sidebar');
     const content = document.getElementById('content');
 
-    sidebar.classList.toggle('ativo');
-
-    if(content){
+    if(sidebar){
+        sidebar.classList.toggle('ativo');
         content.classList.toggle('menu-aberto');
+    }else{
+        alert('Sidebar não encontrada');
     }
 
 }

@@ -105,7 +105,9 @@ body{
 .content{
     padding:30px;
     transition:0.3s;
+    margin-left:0;
 }
+
 .content.menu-aberto{
     margin-left:250px;
 }
@@ -142,7 +144,6 @@ body{
 </head>
 <body>
     <?php include 'includes/menu.php'; ?>
-</div>
 <div class="content" id="content">
 <div class="topo">
     <h2>
@@ -237,21 +238,6 @@ body{
     </div>
 </div>
 </div>
-<script>
-function toggleMenu(){
-
-    let sidebar = document.getElementById("sidebar");
-
-    console.log(sidebar);
-
-    if(sidebar){
-        sidebar.classList.toggle("ativo");
-    }else{
-        alert("Sidebar não encontrada");
-    }
-
-}
-</script>
-
+<script src="assets/js/menu.js"></script>
 </body>
 </html>

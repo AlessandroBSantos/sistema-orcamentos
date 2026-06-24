@@ -1,7 +1,15 @@
 <div class="sidebar" id="sidebar">
 
     <div class="logo">
-        <span>LLA</span> Software
+
+        <button class="menu-toggle" onclick="toggleMenu()">
+            <i class="fa fa-bars"></i>
+        </button>
+
+        <h3>
+            <span>LLA</span> Software
+        </h3>
+
     </div>
 
     <div class="menu">
