@@ -146,7 +146,79 @@ value="<?= $cliente['email'] ?>">
 </div>
 
 <div class="text-end">
+<div class="row">
 
+    <div class="col-md-2 mb-3">
+        <label>CEP</label>
+        <input
+            type="text"
+            name="cep"
+            class="form-control"
+            value="<?= $cliente['cep'] ?>">
+    </div>
+
+    <div class="col-md-8 mb-3">
+        <label>Endereço</label>
+        <input
+            type="text"
+            name="endereco"
+            class="form-control"
+            value="<?= $cliente['endereco'] ?>">
+    </div>
+
+    <div class="col-md-2 mb-3">
+        <label>Número</label>
+        <input
+            type="text"
+            name="numero"
+            class="form-control"
+            value="<?= $cliente['numero'] ?>">
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="col-md-4 mb-3">
+        <label>Bairro</label>
+        <input
+            type="text"
+            name="bairro"
+            class="form-control"
+            value="<?= $cliente['bairro'] ?>">
+    </div>
+
+    <div class="col-md-6 mb-3">
+        <label>Cidade</label>
+        <input
+            type="text"
+            name="cidade"
+            class="form-control"
+            value="<?= $cliente['cidade'] ?>">
+    </div>
+
+    <div class="col-md-2 mb-3">
+        <label>UF</label>
+        <input
+            type="text"
+            name="estado"
+            class="form-control"
+            maxlength="2"
+            value="<?= $cliente['estado'] ?>">
+    </div>
+
+</div>
+
+<div class="mb-3">
+
+    <label>Observações</label>
+
+    <textarea
+        name="observacoes"
+        rows="4"
+        class="form-control"><?= $cliente['observacoes'] ?></textarea>
+
+</div>
 <a href="clientes.php" class="btn btn-secondary">
 Cancelar
 </a>
