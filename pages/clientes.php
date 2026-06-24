@@ -247,13 +247,14 @@ body{
 
                             </a>
 
-                            <a href="excluir_cliente.php?id=<?= $cliente['id'] ?>"
-                               class="btn btn-danger btn-sm"
-                               onclick="return confirm('Deseja realmente excluir este cliente?')">
+                            <a
+    href="excluir_cliente.php?id=<?= $cliente['id'] ?>"
+    class="btn btn-danger btn-sm"
+    onclick="return confirm('Deseja realmente excluir este cliente?')">
 
-                                <i class="fa fa-trash"></i>
+    <i class="fa fa-trash"></i>
 
-                            </a>
+</a>
 
                         </td>
 
