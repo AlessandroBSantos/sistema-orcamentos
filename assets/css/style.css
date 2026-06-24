@@ -1,21 +1,29 @@
 :root{
-    --bg:#0F172A;
-    --card:#111827;
-    --menu:#1E293B;
 
-    --azul:#06B6D4;
-    --verde:#22C55E;
-    --laranja:#F59E0B;
-    --vermelho:#EF4444;
+    --bg:#0B1120;
+    --sidebar:#111827;
+    --card:#1E293B;
 
-    --texto:#F8FAFC;
+    --text:#F8FAFC;
+    --text-secondary:#94A3B8;
+
+    --primary:#38BDF8;
+    --success:#22C55E;
+    --warning:#F59E0B;
+    --danger:#EF4444;
+
+    --border:#334155;
 }
+
+/* ===== BODY ===== */
 
 body{
     background:var(--bg);
-    color:var(--texto);
+    color:var(--text);
     font-family:'Segoe UI',sans-serif;
 }
+
+/* ===== CONTEUDO ===== */
 
 .content{
     padding:30px;
@@ -26,6 +34,8 @@ body{
     margin-left:250px;
 }
 
+/* ===== TITULO ===== */
+
 .titulo-dashboard{
     margin-bottom:30px;
 }
@@ -33,54 +43,160 @@ body{
 .titulo-dashboard h1{
     font-size:38px;
     font-weight:700;
+    color:#fff;
 }
+
+.titulo-dashboard p{
+    color:var(--text-secondary);
+}
+
+/* ===== CARDS ===== */
 
 .cards{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
     gap:20px;
-    margin-bottom:30px;
 }
 
 .card-info{
-    background:var(--card);
+
+    background:linear-gradient(
+        145deg,
+        #1E293B,
+        #111827
+    );
+
+    border:1px solid rgba(255,255,255,.05);
+
     border-radius:18px;
+
     padding:25px;
-    box-shadow:0 5px 20px rgba(0,0,0,.25);
+
+    transition:.3s;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.30);
+}
+
+.card-info:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.40);
 }
 
 .card-info h5{
-    color:#94A3B8;
+
+    color:var(--text-secondary);
+
+    font-size:15px;
+
+    margin-bottom:10px;
 }
 
-.card-info .numero{
+.numero{
+
     font-size:42px;
-    font-weight:bold;
+
+    font-weight:700;
 }
 
 .azul{
-    color:var(--azul);
+    color:var(--primary);
 }
 
 .verde{
-    color:var(--verde);
+    color:var(--success);
 }
 
 .laranja{
-    color:var(--laranja);
+    color:var(--warning);
 }
 
 .vermelho{
-    color:var(--vermelho);
+    color:var(--danger);
 }
+
+/* ===== PAINEIS ===== */
 
 .painel{
-    background:var(--card);
-    border-radius:18px;
+
+    margin-top:30px;
+
+    background:linear-gradient(
+        145deg,
+        #1E293B,
+        #111827
+    );
+
+    border-radius:20px;
+
     padding:25px;
-    margin-top:20px;
+
+    border:1px solid rgba(255,255,255,.05);
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.30);
 }
 
+.painel h3{
+
+    color:#fff;
+
+    font-weight:600;
+}
+
+/* ===== TABELA ===== */
+
 .table-dark{
-    --bs-table-bg:#111827;
+
+    --bs-table-bg:transparent;
+}
+
+.table-dark th{
+
+    color:#CBD5E1;
+
+    border-color:#334155;
+}
+
+.table-dark td{
+
+    color:#F8FAFC;
+
+    border-color:#334155;
+}
+
+.table-hover tbody tr:hover{
+
+    background:#263446;
+}
+
+/* ===== BADGES ===== */
+
+.badge{
+
+    padding:8px 12px;
+
+    border-radius:8px;
+}
+
+/* ===== SCROLL ===== */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-track{
+    background:#111827;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#334155;
+    border-radius:10px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#475569;
 }
