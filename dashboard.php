@@ -61,52 +61,7 @@ body{
     margin:0;
     overflow-x:hidden;
 }
-.sidebar{
-    width:250px;
-    height:100vh;
-    background:var(--menu);
-    position:fixed;
-    left:-250px;
-    top:0;
-    transition:0.3s;
-    z-index:1000;
-}
-.sidebar.ativo{
-    left:0;
-}
-.logo{
-    display:flex;
-    align-items:center;
-    gap:15px;
-    padding:20px;
-    border-bottom:1px solid #334155;
-}
-.logo span{
-    color:var(--azul);
-}
-.menu{
-    padding:20px;
-}
-.menu a{
-    display:block;
-    color:white;
-    text-decoration:none;
-    padding:12px;
-    margin-bottom:5px;
-    border-radius:10px;
-    transition:.3s;
-}
-.menu a:hover{
-    background:#334155;
-}
-.menu-toggle{
-    border:none;
-    background:#06B6D4;
-    color:white;
-    width:45px;
-    height:45px;
-    border-radius:10px;
-}
+
 .content{
     padding:30px;
     transition:0.3s;
@@ -115,35 +70,6 @@ body{
 
 .content.menu-aberto{
     margin-left:250px;
-}
-.card-dashboard{
-    background:var(--card);
-    border-radius:15px;
-    padding:20px;
-    min-height:130px;
-    box-shadow:0 5px 20px rgba(0,0,0,.2);
-}
-.valor{
-    font-size:32px;
-    font-weight:bold;
-}
-.azul{
-    color:var(--azul);
-}
-.verde{
-    color:var(--verde);
-}
-.amarelo{
-    color:var(--amarelo);
-}
-.vermelho{
-    color:var(--vermelho);
-}
-.table-dark{
-    --bs-table-bg:#111827;
-}
-.topo{
-    margin-bottom:30px;
 }
 </style>
 </head>
