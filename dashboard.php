@@ -6,11 +6,6 @@ ini_set('display_errors', 1);
 session_start();
 require_once 'config/conexao.php';
 
-
-
-session_start();
-require_once 'config/conexao.php';
-
 if (!isset($_SESSION['usuario_id'])) {
     header("Location: login.php");
     exit;
@@ -25,17 +20,23 @@ $totalProdutos = $pdo->query("SELECT COUNT(*) FROM produtos")->fetchColumn();
 
 $totalOrcamentos = $pdo->query("SELECT COUNT(*) FROM orcamentos")->fetchColumn();
 
-// Ajuste o nome do campo se necessário
 $totalFaturamento = $pdo->query("
-    SELECT COALESCE(SUM(valor_total),0)
+    SELECT COALESCE(SUM(total),0)
     FROM orcamentos
 ")->fetchColumn();
 
 // Últimos orçamentos
 $ultimosOrcamentos = $pdo->query("
-    SELECT *
-    FROM orcamentos
-    ORDER BY id DESC
+    SELECT
+        o.id,
+        c.nome,
+        o.total,
+        o.status,
+        o.criado_em
+    FROM orcamentos o
+    LEFT JOIN clientes c
+        ON c.id = o.cliente_id
+    ORDER BY o.id DESC
     LIMIT 10
 ")->fetchAll(PDO::FETCH_ASSOC);
 
@@ -121,6 +122,7 @@ body{
     border-radius:15px;
     padding:20px;
     min-height:130px;
+    box-shadow:0 5px 20px rgba(0,0,0,.2);
 }
 
 .valor{
@@ -210,59 +212,39 @@ body{
     <div class="row">
 
         <div class="col-md-3 mb-3">
-
             <div class="card-dashboard">
-
                 <h6>Clientes</h6>
-
                 <div class="valor azul">
                     <?= $totalClientes ?>
                 </div>
-
             </div>
-
         </div>
 
         <div class="col-md-3 mb-3">
-
             <div class="card-dashboard">
-
                 <h6>Produtos</h6>
-
                 <div class="valor verde">
                     <?= $totalProdutos ?>
                 </div>
-
             </div>
-
         </div>
 
         <div class="col-md-3 mb-3">
-
             <div class="card-dashboard">
-
                 <h6>Orçamentos</h6>
-
                 <div class="valor amarelo">
                     <?= $totalOrcamentos ?>
                 </div>
-
             </div>
-
         </div>
 
         <div class="col-md-3 mb-3">
-
             <div class="card-dashboard">
-
                 <h6>Faturamento</h6>
-
                 <div class="valor vermelho">
                     R$ <?= number_format($totalFaturamento,2,',','.') ?>
                 </div>
-
             </div>
-
         </div>
 
     </div>
@@ -276,14 +258,13 @@ body{
         <table class="table table-dark table-hover">
 
             <thead>
-
                 <tr>
                     <th>ID</th>
                     <th>Cliente</th>
                     <th>Valor</th>
                     <th>Status</th>
+                    <th>Data</th>
                 </tr>
-
             </thead>
 
             <tbody>
@@ -294,26 +275,43 @@ body{
 
                     <td><?= $orcamento['id'] ?></td>
 
-                    <td><?= $orcamento['cliente'] ?? '-' ?></td>
+                    <td>
+                        <?= htmlspecialchars($orcamento['nome'] ?? 'Sem Cliente') ?>
+                    </td>
 
                     <td>
-                        R$ <?= number_format($orcamento['valor_total'] ?? 0,2,',','.') ?>
+                        R$ <?= number_format($orcamento['total'],2,',','.') ?>
                     </td>
 
                     <td>
 
-                        <?php
-                        $status = $orcamento['status'] ?? 'Pendente';
+                    <?php
 
-                        if($status == 'Aprovado'){
+                    switch($orcamento['status']){
+
+                        case 'aprovado':
                             echo '<span class="badge bg-success">Aprovado</span>';
-                        } elseif($status == 'Reprovado'){
-                            echo '<span class="badge bg-danger">Reprovado</span>';
-                        } else {
-                            echo '<span class="badge bg-warning">Pendente</span>';
-                        }
-                        ?>
+                            break;
 
+                        case 'reprovado':
+                            echo '<span class="badge bg-danger">Reprovado</span>';
+                            break;
+
+                        case 'enviado':
+                            echo '<span class="badge bg-primary">Enviado</span>';
+                            break;
+
+                        default:
+                            echo '<span class="badge bg-warning">Rascunho</span>';
+                            break;
+                    }
+
+                    ?>
+
+                    </td>
+
+                    <td>
+                        <?= date('d/m/Y', strtotime($orcamento['criado_em'])) ?>
                     </td>
 
                 </tr>
