@@ -118,13 +118,25 @@ body{
         Clientes
     </h2>
 
-    <a href="cadastrar_cliente.php"
-       class="btn btn-success btn-novo">
+    <div>
 
-        <i class="fa fa-plus"></i>
-        Novo Cliente
+        <a href="../dashboard.php"
+           class="btn btn-secondary">
 
-    </a>
+            <i class="fa fa-arrow-left"></i>
+            Dashboard
+
+        </a>
+
+        <a href="cadastrar_cliente.php"
+           class="btn btn-success btn-novo">
+
+            <i class="fa fa-plus"></i>
+            Novo Cliente
+
+        </a>
+
+    </div>
 
 </div>
 
