@@ -60,15 +60,27 @@ body{
     margin:0;
     overflow-x:hidden;
 }
-
+.content.menu-aberto{
+    margin-left:250px;
+}
 .content{
     padding:30px;
-    transition:0.3s;
+    transition:all .3s ease;
     margin-left:0;
+    width:100%;
 }
 
 .content.menu-aberto{
     margin-left:250px;
+    width:calc(100% - 250px);
+}
+@media(max-width:768px){
+
+    .content.menu-aberto{
+        margin-left:0;
+        width:100%;
+    }
+
 }
 </style>
 </head>
@@ -168,6 +180,6 @@ body{
     </div>
 </div>
 </div>
-<script src="/sistema-orcamentos/assets/js/menu.js"></script>
+<script src="assets/js/menu.js"></script>
 </body>
 </html>
