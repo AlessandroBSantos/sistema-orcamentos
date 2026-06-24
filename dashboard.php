@@ -237,6 +237,11 @@ body{
     </div>
 </div>
 </div>
+<script>
+function toggleMenu() {
+    alert('Menu funcionando');
+}
+</script>
 <script src="assets/js/menu.js"></script>
 </body>
 </html>
