@@ -1,47 +1,86 @@
 :root{
-    --bg-main:#0f172a;
-    --bg-card:#1f2938;
-    --bg-menu:#111827;
+    --bg:#0F172A;
+    --card:#111827;
+    --menu:#1E293B;
 
-    --text:#f9fafb;
-    --text-muted:#9ca3af;
+    --azul:#06B6D4;
+    --verde:#22C55E;
+    --laranja:#F59E0B;
+    --vermelho:#EF4444;
 
-    --primary:#06b6d4;
-    --success:#22c55e;
-    --warning:#eab308;
-    --danger:#ef4444;
-
-    --border:#374151;
+    --texto:#F8FAFC;
 }
 
 body{
-    background:var(--bg-main);
-    color:var(--text);
-    font-family:'Segoe UI', Tahoma, Verdana, sans-serif;
+    background:var(--bg);
+    color:var(--texto);
+    font-family:'Segoe UI',sans-serif;
 }
 
-.navbar{
-    background: var(--bg-menu)!important;
-    border-bottom: 1px solid var(--border);
-    border-radius: 15px;
+.content{
+    padding:30px;
+    transition:.3s;
 }
 
-.card-dark:hover{
-    transform:translateY(-3px);
-    transistion: 0.3s;
+.content.menu-aberto{
+    margin-left:250px;
 }
 
-.card-number{
-    font-size: 32px;
-    font-weight: 700;
+.titulo-dashboard{
+    margin-bottom:30px;
 }
 
-.table-dark-custom{
-    background: var(--bg-card);
-    color:white;
+.titulo-dashboard h1{
+    font-size:38px;
+    font-weight:700;
 }
 
-.btn-primary{
-    background: var(--primary);
-    border: none;
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    margin-bottom:30px;
+}
+
+.card-info{
+    background:var(--card);
+    border-radius:18px;
+    padding:25px;
+    box-shadow:0 5px 20px rgba(0,0,0,.25);
+}
+
+.card-info h5{
+    color:#94A3B8;
+}
+
+.card-info .numero{
+    font-size:42px;
+    font-weight:bold;
+}
+
+.azul{
+    color:var(--azul);
+}
+
+.verde{
+    color:var(--verde);
+}
+
+.laranja{
+    color:var(--laranja);
+}
+
+.vermelho{
+    color:var(--vermelho);
+}
+
+.painel{
+    background:var(--card);
+    border-radius:18px;
+    padding:25px;
+    margin-top:20px;
+}
+
+.table-dark{
+    --bs-table-bg:#111827;
 }
