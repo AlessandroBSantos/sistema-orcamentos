@@ -1,13 +1,5 @@
 <div class="sidebar" id="sidebar">
 
-    <h3>MENU TESTE</h3>
-
-    <a href="#">Dashboard</a>
-    <a href="#">Clientes</a>
-    <a href="#">Produtos</a>
-
-</div>
-
     <div class="logo">
 
         <button class="menu-toggle" onclick="toggleMenu()">
@@ -22,12 +14,12 @@
 
     <div class="menu">
 
-        <a href="dashboard.php">
+        <a href="../dashboard.php">
             <i class="fa fa-chart-line"></i>
             Dashboard
         </a>
 
-        <a href="pages/clientes.php">
+        <a href="../pages/clientes.php">
             <i class="fa fa-users"></i>
             Clientes
         </a>
@@ -52,7 +44,7 @@
             Configurações
         </a>
 
-        <a href="logout.php">
+        <a href="../logout.php">
             <i class="fa fa-sign-out-alt"></i>
             Sair
         </a>
@@ -60,7 +52,3 @@
     </div>
 
 </div>
-
-<button class="menu-toggle" onclick="toggleMenu()">
-    <i class="fa fa-bars"></i>
-</button>
