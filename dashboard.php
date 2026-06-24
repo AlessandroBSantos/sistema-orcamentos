@@ -238,8 +238,18 @@ body{
 </div>
 </div>
 <script>
-function toggleMenu() {
-    alert('Menu funcionando');
+function toggleMenu(){
+
+    let sidebar = document.getElementById("sidebar");
+
+    console.log(sidebar);
+
+    if(sidebar){
+        sidebar.classList.toggle("ativo");
+    }else{
+        alert("Sidebar não encontrada");
+    }
+
 }
 </script>
 
