@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once 'config/conexao.php';
 
 if (!isset($_SESSION['usuario_id'])) {
     header("Location: login.php");
@@ -7,6 +8,28 @@ if (!isset($_SESSION['usuario_id'])) {
 }
 
 $usuario = $_SESSION['usuario_nome'];
+
+// Totais
+$totalClientes = $pdo->query("SELECT COUNT(*) FROM clientes")->fetchColumn();
+
+$totalProdutos = $pdo->query("SELECT COUNT(*) FROM produtos")->fetchColumn();
+
+$totalOrcamentos = $pdo->query("SELECT COUNT(*) FROM orcamentos")->fetchColumn();
+
+// Ajuste o nome do campo se necessário
+$totalFaturamento = $pdo->query("
+    SELECT COALESCE(SUM(valor_total),0)
+    FROM orcamentos
+")->fetchColumn();
+
+// Últimos orçamentos
+$ultimosOrcamentos = $pdo->query("
+    SELECT *
+    FROM orcamentos
+    ORDER BY id DESC
+    LIMIT 10
+")->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
@@ -88,6 +111,7 @@ body{
     background:var(--card);
     border-radius:15px;
     padding:20px;
+    min-height:130px;
 }
 
 .valor{
@@ -111,8 +135,8 @@ body{
     color:var(--vermelho);
 }
 
-.table{
-    color:white;
+.table-dark{
+    --bs-table-bg:#111827;
 }
 
 </style>
@@ -129,7 +153,7 @@ body{
 
     <div class="menu">
 
-        <a href="#">
+        <a href="dashboard.php">
             <i class="fa fa-chart-line"></i>
             Dashboard
         </a>
@@ -171,7 +195,7 @@ body{
 <div class="content">
 
     <h2 class="mb-4">
-        Bem-vindo, <?= $usuario ?>
+        Bem-vindo, <?= htmlspecialchars($usuario) ?>
     </h2>
 
     <div class="row">
@@ -183,7 +207,21 @@ body{
                 <h6>Clientes</h6>
 
                 <div class="valor azul">
-                    15
+                    <?= $totalClientes ?>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3 mb-3">
+
+            <div class="card-dashboard">
+
+                <h6>Produtos</h6>
+
+                <div class="valor verde">
+                    <?= $totalProdutos ?>
                 </div>
 
             </div>
@@ -196,22 +234,8 @@ body{
 
                 <h6>Orçamentos</h6>
 
-                <div class="valor verde">
-                    42
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="col-md-3 mb-3">
-
-            <div class="card-dashboard">
-
-                <h6>Aprovados</h6>
-
                 <div class="valor amarelo">
-                    28
+                    <?= $totalOrcamentos ?>
                 </div>
 
             </div>
@@ -225,7 +249,7 @@ body{
                 <h6>Faturamento</h6>
 
                 <div class="valor vermelho">
-                    R$ 89.000
+                    R$ <?= number_format($totalFaturamento,2,',','.') ?>
                 </div>
 
             </div>
@@ -236,14 +260,16 @@ body{
 
     <div class="card-dashboard mt-4">
 
-        <h4>Últimos Orçamentos</h4>
+        <h4 class="mb-4">
+            Últimos Orçamentos
+        </h4>
 
-        <table class="table mt-3">
+        <table class="table table-dark table-hover">
 
             <thead>
 
                 <tr>
-                    <th>Código</th>
+                    <th>ID</th>
                     <th>Cliente</th>
                     <th>Valor</th>
                     <th>Status</th>
@@ -253,19 +279,37 @@ body{
 
             <tbody>
 
-                <tr>
-                    <td>ORC-001</td>
-                    <td>Empresa ABC</td>
-                    <td>R$ 2.500,00</td>
-                    <td><span class="badge bg-success">Aprovado</span></td>
-                </tr>
+            <?php foreach($ultimosOrcamentos as $orcamento): ?>
 
                 <tr>
-                    <td>ORC-002</td>
-                    <td>Empresa XYZ</td>
-                    <td>R$ 1.800,00</td>
-                    <td><span class="badge bg-warning">Pendente</span></td>
+
+                    <td><?= $orcamento['id'] ?></td>
+
+                    <td><?= $orcamento['cliente'] ?? '-' ?></td>
+
+                    <td>
+                        R$ <?= number_format($orcamento['valor_total'] ?? 0,2,',','.') ?>
+                    </td>
+
+                    <td>
+
+                        <?php
+                        $status = $orcamento['status'] ?? 'Pendente';
+
+                        if($status == 'Aprovado'){
+                            echo '<span class="badge bg-success">Aprovado</span>';
+                        } elseif($status == 'Reprovado'){
+                            echo '<span class="badge bg-danger">Reprovado</span>';
+                        } else {
+                            echo '<span class="badge bg-warning">Pendente</span>';
+                        }
+                        ?>
+
+                    </td>
+
                 </tr>
+
+            <?php endforeach; ?>
 
             </tbody>
 
