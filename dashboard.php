@@ -242,6 +242,6 @@ function toggleMenu() {
     alert('Menu funcionando');
 }
 </script>
-<script src="assets/js/menu.js"></script>
+
 </body>
 </html>
