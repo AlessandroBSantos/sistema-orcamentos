@@ -13,11 +13,9 @@ if (!isset($_SESSION['usuario_id'])) {
 
 $usuario = $_SESSION['usuario_nome'];
 
-// Totais
+// Estatísticas
 $totalClientes = $pdo->query("SELECT COUNT(*) FROM clientes")->fetchColumn();
-
 $totalProdutos = $pdo->query("SELECT COUNT(*) FROM produtos")->fetchColumn();
-
 $totalOrcamentos = $pdo->query("SELECT COUNT(*) FROM orcamentos")->fetchColumn();
 
 $totalFaturamento = $pdo->query("
@@ -43,6 +41,7 @@ $ultimosOrcamentos = $pdo->query("
 ?>
 
 <!DOCTYPE html>
+
 <html lang="pt-br">
 
 <head>
@@ -53,7 +52,6 @@ $ultimosOrcamentos = $pdo->query("
 <title>Dashboard - LLA Software</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
 
 <style>
@@ -72,6 +70,7 @@ body{
     background:var(--bg);
     color:white;
     margin:0;
+    overflow-x:hidden;
 }
 
 .sidebar{
@@ -79,16 +78,15 @@ body{
     height:100vh;
     background:var(--menu);
     position:fixed;
-    left:0;
+    left:-250px;
     top:0;
-    transition:all .3s ease;
+    transition:0.3s;
     z-index:1000;
 }
 
-.sidebar.oculto{
-    ledt:-250px;
+.sidebar.ativo{
+    left:0;
 }
-
 
 .logo{
     padding:20px;
@@ -113,6 +111,7 @@ body{
     padding:12px;
     margin-bottom:5px;
     border-radius:10px;
+    transition:.3s;
 }
 
 .menu a:hover{
@@ -123,27 +122,27 @@ body{
     position:fixed;
     top:15px;
     left:15px;
-    z-index: index 1100;
+    z-index:1100;
+
+    width:45px;
+    height:45px;
 
     border:none;
-    background: var(--azul);
+    border-radius:10px;
+
+    background:var(--azul);
     color:white;
 
-    width: 45px;
-    height:35px;
-
-    border-radius:10px;
-    cursos:pointer;
+    cursor:pointer;
 }
 
 .content{
-    margin-left:250px;
     padding:30px;
-    transition:all .3s ease;
+    transition:0.3s;
 }
 
-.content.expandido{
-    mardin-left:0;
+.content.menu-aberto{
+    margin-left:250px;
 }
 
 .card-dashboard{
@@ -159,12 +158,12 @@ body{
     font-weight:bold;
 }
 
-.verde{
-    color:var(--verde);
-}
-
 .azul{
     color:var(--azul);
+}
+
+.verde{
+    color:var(--verde);
 }
 
 .amarelo{
@@ -179,117 +178,153 @@ body{
     --bs-table-bg:#111827;
 }
 
+.topo{
+    margin-bottom:30px;
+}
+
 </style>
 
 </head>
 
 <body>
-    <button class="menu-toggle" onclick="toggleMenu()">
-        <i class="fa fa-bars"></i>
-    </button>
 
-<div class="sidebar">
+<button class="menu-toggle" onclick="toggleMenu()">
+    <i class="fa fa-bars"></i>
+</button>
 
-    <div class="logo">
-        <span>LLA</span> Software
+<div class="sidebar" id="sidebar">
+
+```
+<div class="logo">
+    <span>LLA</span> Software
+</div>
+
+<div class="menu">
+
+    <a href="dashboard.php">
+        <i class="fa fa-chart-line"></i>
+        Dashboard
+    </a>
+
+    <a href="pages/clientes.php">
+        <i class="fa fa-users"></i>
+        Clientes
+    </a>
+
+    <a href="#">
+        <i class="fa fa-box"></i>
+        Produtos
+    </a>
+
+    <a href="#">
+        <i class="fa fa-file-invoice-dollar"></i>
+        Orçamentos
+    </a>
+
+    <a href="#">
+        <i class="fa fa-chart-pie"></i>
+        Financeiro
+    </a>
+
+    <a href="#">
+        <i class="fa fa-cog"></i>
+        Configurações
+    </a>
+
+    <a href="logout.php">
+        <i class="fa fa-sign-out-alt"></i>
+        Sair
+    </a>
+
+</div>
+```
+
+</div>
+
+<div class="content" id="content">
+
+```
+<div class="topo">
+
+    <h2>
+        Bem-vindo,
+        <?= htmlspecialchars($usuario) ?>
+    </h2>
+
+</div>
+
+<div class="row">
+
+    <div class="col-md-3 mb-3">
+
+        <div class="card-dashboard">
+
+            <h6>Clientes</h6>
+
+            <div class="valor azul">
+                <?= $totalClientes ?>
+            </div>
+
+        </div>
+
     </div>
 
-    <div class="menu">
+    <div class="col-md-3 mb-3">
 
-        <a href="dashboard.php">
-            <i class="fa fa-chart-line"></i>
-            Dashboard
-        </a>
+        <div class="card-dashboard">
 
-        <a href="pages/clientes.php">
-            <i class="fa fa-users"></i>
-            Clientes
-        </a>
+            <h6>Produtos</h6>
 
-        <a href="#">
-            <i class="fa fa-box"></i>
-            Produtos
-        </a>
+            <div class="valor verde">
+                <?= $totalProdutos ?>
+            </div>
 
-        <a href="#">
-            <i class="fa fa-file-invoice-dollar"></i>
-            Orçamentos
-        </a>
+        </div>
 
-        <a href="#">
-            <i class="fa fa-chart-pie"></i>
-            Financeiro
-        </a>
+    </div>
 
-        <a href="#">
-            <i class="fa fa-cog"></i>
-            Configurações
-        </a>
+    <div class="col-md-3 mb-3">
 
-        <a href="logout.php">
-            <i class="fa fa-sign-out-alt"></i>
-            Sair
-        </a>
+        <div class="card-dashboard">
+
+            <h6>Orçamentos</h6>
+
+            <div class="valor amarelo">
+                <?= $totalOrcamentos ?>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3 mb-3">
+
+        <div class="card-dashboard">
+
+            <h6>Faturamento</h6>
+
+            <div class="valor vermelho">
+                R$ <?= number_format($totalFaturamento,2,',','.') ?>
+            </div>
+
+        </div>
 
     </div>
 
 </div>
 
-<div class="content">
+<div class="card-dashboard mt-4">
 
-    <h2 class="mb-4">
-        Bem-vindo, <?= htmlspecialchars($usuario) ?>
-    </h2>
+    <h4 class="mb-4">
+        Últimos Orçamentos
+    </h4>
 
-    <div class="row">
-
-        <div class="col-md-3 mb-3">
-            <div class="card-dashboard">
-                <h6>Clientes</h6>
-                <div class="valor azul">
-                    <?= $totalClientes ?>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3 mb-3">
-            <div class="card-dashboard">
-                <h6>Produtos</h6>
-                <div class="valor verde">
-                    <?= $totalProdutos ?>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3 mb-3">
-            <div class="card-dashboard">
-                <h6>Orçamentos</h6>
-                <div class="valor amarelo">
-                    <?= $totalOrcamentos ?>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3 mb-3">
-            <div class="card-dashboard">
-                <h6>Faturamento</h6>
-                <div class="valor vermelho">
-                    R$ <?= number_format($totalFaturamento,2,',','.') ?>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="card-dashboard mt-4">
-
-        <h4 class="mb-4">
-            Últimos Orçamentos
-        </h4>
+    <div class="table-responsive">
 
         <table class="table table-dark table-hover">
 
             <thead>
+
                 <tr>
                     <th>ID</th>
                     <th>Cliente</th>
@@ -297,6 +332,7 @@ body{
                     <th>Status</th>
                     <th>Data</th>
                 </tr>
+
             </thead>
 
             <tbody>
@@ -357,21 +393,26 @@ body{
     </div>
 
 </div>
+```
 
-</body>
+</div>
 
 <script>
 
-    function toggleMenu(){
-        const sidebar =
-        document.querySelector('.sidebar');
-        const content =
-        document.querySelector('content');
+function toggleMenu(){
 
-        sidebar.classList.toggle('oculto');
-        content.classList.toggle('expandido');
-    }
+    const sidebar =
+        document.getElementById('sidebar');
+
+    const content =
+        document.getElementById('content');
+
+    sidebar.classList.toggle('ativo');
+
+    content.classList.toggle('menu-aberto');
+}
 
 </script>
 
+</body>
 </html>
