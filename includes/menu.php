@@ -1,60 +1,50 @@
-<nav class="navbar navbar-expand-lg navbar-dark">
+<div class="sidebar" id="sidebar">
 
-<div class="container-fluid">
+    <div class="logo">
+        <span>LLA</span> Software
+    </div>
 
-<a class="navbar-brand" href="#">
+    <div class="menu">
 
-LLA Software
+        <a href="dashboard.php">
+            <i class="fa fa-chart-line"></i>
+            Dashboard
+        </a>
 
-</a>
+        <a href="pages/clientes.php">
+            <i class="fa fa-users"></i>
+            Clientes
+        </a>
 
-<button class="navbar-toggler"
-data-bs-toggle="collapse"
-data-bs-target="#menu">
+        <a href="#">
+            <i class="fa fa-box"></i>
+            Produtos
+        </a>
 
-<span class="navbar-toggler-icon"></span>
+        <a href="#">
+            <i class="fa fa-file-invoice-dollar"></i>
+            Orçamentos
+        </a>
 
+        <a href="#">
+            <i class="fa fa-chart-pie"></i>
+            Financeiro
+        </a>
+
+        <a href="#">
+            <i class="fa fa-cog"></i>
+            Configurações
+        </a>
+
+        <a href="logout.php">
+            <i class="fa fa-sign-out-alt"></i>
+            Sair
+        </a>
+
+    </div>
+
+</div>
+
+<button class="menu-toggle" onclick="toggleMenu()">
+    <i class="fa fa-bars"></i>
 </button>
-
-<div class="collapse navbar-collapse"
-id="menu">
-
-<ul class="navbar-nav ms-auto">
-
-<li class="nav-item">
-<a class="nav-link" href="dashboard.php">
-Dashboard
-</a>
-</li>
-
-<li class="nav-item">
-<a class="nav-link" href="clientes.php">
-Clientes
-</a>
-</li>
-
-<li class="nav-item">
-<a class="nav-link" href="produtos.php">
-Produtos
-</a>
-</li>
-
-<li class="nav-item">
-<a class="nav-link" href="orcamentos.php">
-Orçamentos
-</a>
-</li>
-
-<li class="nav-item">
-<a class="nav-link" href="../logout.php">
-Sair
-</a>
-</li>
-
-</ul>
-
-</div>
-
-</div>
-
-</nav>

@@ -35,7 +35,6 @@ $ultimosOrcamentos = $pdo->query("
 <html lang="pt-br">
 <head>
     <link rel="stylesheet" href="../assets/css/menu.css">
-    <link rel="stylesheet" href="assets/css/menu.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dashboard - LLA Software</title>
@@ -143,46 +142,6 @@ body{
 </head>
 <body>
     <?php include 'includes/menu.php'; ?>
-<button class="menu-toggle" onclick="toggleMenu()">
-    <i class="fa fa-bars"></i>
-</button>
-<div class="sidebar" id="sidebar">
-<div class="logo">
-    <button class="menu-toggle" onclick="toggleMenu()">
-        <i class="fa fa-bars"></i>
-    </button>
-    <span>LLA</span> Software
-</div>
-<div class="menu">
-    <a href="dashboard.php">
-        <i class="fa fa-chart-line"></i>
-        Dashboard
-    </a>
-    <a href="pages/clientes.php">
-        <i class="fa fa-users"></i>
-        Clientes
-    </a>
-    <a href="#">
-        <i class="fa fa-box"></i>
-        Produtos
-    </a>
-    <a href="#">
-        <i class="fa fa-file-invoice-dollar"></i>
-        Orçamentos
-    </a>
-    <a href="#">
-        <i class="fa fa-chart-pie"></i>
-        Financeiro
-    </a>
-    <a href="#">
-        <i class="fa fa-cog"></i>
-        Configurações
-    </a>
-    <a href="logout.php">
-        <i class="fa fa-sign-out-alt"></i>
-        Sair
-    </a>
-</div>
 </div>
 <div class="content" id="content">
 <div class="topo">
@@ -278,16 +237,6 @@ body{
     </div>
 </div>
 </div>
-<script>
-function toggleMenu(){
-    const sidebar =
-        document.getElementById('sidebar');
-    const content =
-        document.getElementById('content');
-    sidebar.classList.toggle('ativo');
-    content.classList.toggle('menu-aberto');
-}
-</script>
 <script src="assets/js/menu.js"></script>
 </body>
 </html>
