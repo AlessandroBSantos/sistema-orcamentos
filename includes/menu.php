@@ -1,15 +1,11 @@
 <div class="sidebar" id="sidebar">
 
     <div class="logo">
-
         <button class="menu-toggle" onclick="toggleMenu()">
             <i class="fa fa-bars"></i>
         </button>
 
-        <h3>
-            <span>LLA</span> Software
-        </h3>
-
+        <span>LLA</span> Software
     </div>
 
     <div class="menu">
@@ -24,22 +20,22 @@
             Clientes
         </a>
 
-        <a href="#">
+        <a href="../pages/produtos.php">
             <i class="fa fa-box"></i>
             Produtos
         </a>
 
-        <a href="#">
+        <a href="../pages/orcamentos.php">
             <i class="fa fa-file-invoice-dollar"></i>
             Orçamentos
         </a>
 
-        <a href="#">
+        <a href="../pages/financeiro.php">
             <i class="fa fa-chart-pie"></i>
             Financeiro
         </a>
 
-        <a href="#">
+        <a href="../pages/configuracoes.php">
             <i class="fa fa-cog"></i>
             Configurações
         </a>
