@@ -3,30 +3,31 @@
 session_start();
 require '../config/conexao.php';
 
+if (!isset($_SESSION['usuario_id'])) {
+    header("Location: ../login.php");
+    exit;
+}
+
+$id = $_POST['id'];
+
 $stmt = $pdo->prepare("
-INSERT INTO clientes
-(
-    nome,
-    cpf_cnpj,
-    telefone,
-    whatsapp,
-    email,
-    cep,
-    endereco,
-    numero,
-    bairro,
-    cidade,
-    estado,
-    observacoes
-)
-VALUES
-(
-    ?,?,?,?,?,?,?,?,?,?,?,?
-)
+    UPDATE clientes SET
+        nome = ?,
+        cpf_cnpj = ?,
+        telefone = ?,
+        whatsapp = ?,
+        email = ?,
+        cep = ?,
+        endereco = ?,
+        numero = ?,
+        bairro = ?,
+        cidade = ?,
+        estado = ?,
+        observacoes = ?
+    WHERE id = ?
 ");
 
 $stmt->execute([
-
     $_POST['nome'],
     $_POST['cpf_cnpj'],
     $_POST['telefone'],
@@ -38,9 +39,9 @@ $stmt->execute([
     $_POST['bairro'],
     $_POST['cidade'],
     $_POST['estado'],
-    $_POST['observacoes']
-
+    $_POST['observacoes'],
+    $id
 ]);
 
-header("Location: clientes.php?sucesso=1");
+header("Location: clientes.php?editado=1");
 exit;
