@@ -13,35 +13,6 @@
     left:0;
 }
 
-.logo{
-    padding:20px;
-    border-bottom:1px solid #334155;
-    color:white;
-    font-size:24px;
-    font-weight:bold;
-}
-
-.logo span{
-    color:#06B6D4;
-}
-
-.menu{
-    padding:20px;
-}
-
-.menu a{
-    display:block;
-    color:white;
-    text-decoration:none;
-    padding:12px;
-    margin-bottom:8px;
-    border-radius:10px;
-}
-
-.menu a:hover{
-    background:#334155;
-}
-
 .menu-toggle{
     position:fixed;
     top:15px;
@@ -51,7 +22,8 @@
     border:none;
     border-radius:12px;
     background:#06B6D4;
-    color:white;
+    color:#fff;
+    font-size:20px;
     z-index:1100;
 }
 
