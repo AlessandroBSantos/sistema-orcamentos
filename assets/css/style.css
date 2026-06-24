@@ -1,5 +1,6 @@
 :root{
-
+    --bg:#0F172A;
+    --texto:#F8FAFC;
 --bg:#0B1120;
 --sidebar:#111827;
 --card:#1A2332;
@@ -13,14 +14,10 @@
 /* ===== BODY ===== */
 
 body{
+    background:#0F172A !important;
+    color:#F8FAFC !important;
     margin:0;
-    padding:0;
     min-height:100vh;
-
-    background:#0B1120 !important;
-    color:#1a1b1b;
-
-    font-family:'Segoe UI',sans-serif;
 }
 
 .sidebar{

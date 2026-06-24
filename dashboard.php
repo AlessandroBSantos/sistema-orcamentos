@@ -80,7 +80,7 @@ $ultimosOrcamentos = $pdo->query("
 </head>
 
 <body>
-
+<body data-bs-theme="dark">
 <?php include 'includes/menu.php'; ?>
 
 <div class="content" id="content">
