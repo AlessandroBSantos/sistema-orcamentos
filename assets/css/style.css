@@ -30,6 +30,7 @@ body{
 
 .logo{
     border-bottom:1px solid #1E293B;
+    margin-top:200px;
 }
 .content{
     min-height:100vh;
