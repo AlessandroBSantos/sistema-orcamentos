@@ -3,7 +3,7 @@
     height:100vh;
     background:#1E293B;
     position:fixed;
-    top:0;
+    top:20;
     left:-250px;
     transition:.3s ease;
     z-index:1000;
