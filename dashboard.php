@@ -71,13 +71,14 @@ $ultimosOrcamentos = $pdo->query("
 <title>Dashboard - LLA Software</title>
 
 <link rel="stylesheet" href="/sistema-orcamentos/assets/css/variables.css">
-<link rel="stylesheet" href="/sistema-orcamentos/assets/css/menu.css">
 <link rel="stylesheet" href="/sistema-orcamentos/assets/css/style.css">
+<link rel="stylesheet" href="/sistema-orcamentos/assets/css/menu.css">
+<link rel="stylesheet" href="/sistema-orcamentos/assets/css/dashboard.css">
 <link rel="stylesheet" href="/sistema-orcamentos/assets/css/cards.css">
 <link rel="stylesheet" href="/sistema-orcamentos/assets/css/table.css">
 <link rel="stylesheet" href="/sistema-orcamentos/assets/css/buttons.css">
+<link rel="stylesheet" href="/sistema-orcamentos/assets/css/forms.css">
 <link rel="stylesheet" href="/sistema-orcamentos/assets/css/responsive.css">
-
 </head>
 
 <body>
@@ -244,6 +245,8 @@ $ultimosOrcamentos = $pdo->query("
 </div>
 
 <script src="/sistema-orcamentos/assets/js/menu.js"></script>
+<script src="/sistema-orcamentos/assets/js/dashboard.js"></script>
+<script src="/sistema-orcamentos/assets/js/app.js"></script>
 
 
 </body>
