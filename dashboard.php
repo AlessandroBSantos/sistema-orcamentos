@@ -71,11 +71,12 @@ $ultimosOrcamentos = $pdo->query("
 <title>Dashboard - LLA Software</title>
 
 <link rel="stylesheet" href="/sistema-orcamentos/assets/css/variables.css">
-
-
-//colocar as demais hrefs do css aqui
-
-
+<link rel="stylesheet" href="/sistema-orcamentos/assets/css/menu.css">
+<link rel="stylesheet" href="/sistema-orcamentos/assets/css/style.css">
+<link rel="stylesheet" href="/sistema-orcamentos/assets/css/cards.css">
+<link rel="stylesheet" href="/sistema-orcamentos/assets/css/table.css">
+<link rel="stylesheet" href="/sistema-orcamentos/assets/css/buttons.css">
+<link rel="stylesheet" href="/sistema-orcamentos/assets/css/responsive.css">
 
 </head>
 
