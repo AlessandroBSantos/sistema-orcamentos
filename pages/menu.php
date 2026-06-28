@@ -1,9 +1,8 @@
 <button class="menu-toggle" onclick="toggleMenu()">
-        <img src="/sistema-orcamentos/assets/img/menu.png" alt="menu" width="32" height="32">
-
+    <i class="fa fa-bars"></i>
+        
 </button>
-<link rel="stylesheet" href="/sistema-orcamentos/assets/css/menu.css">
-<link rel="stylesheet" href="/sistema-orcamentos/assets/css/style.css">
+
 <div class="sidebar" id="sidebar">
 
     <div class="logo">
