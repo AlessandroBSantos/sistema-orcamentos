@@ -88,73 +88,46 @@ $ultimosOrcamentos = $pdo->query("
 <div class="content" id="content">
 
     <div class="titulo-dashboard">
-
         <h1>
             Bem-vindo, <?= htmlspecialchars($usuario) ?>
         </h1>
-
         <p>
             Painel Administrativo LLA Software
         </p>
-
     </div>
-
     <div class="cards">
-
         <div class="card-info">
-
             <h5>Clientes</h5>
-
             <div class="numero azul">
                 <?= $totalClientes ?>
             </div>
-
         </div>
-
         <div class="card-info">
-
             <h5>Produtos</h5>
-
             <div class="numero verde">
                 <?= $totalProdutos ?>
             </div>
-
         </div>
-
         <div class="card-info">
-
             <h5>Orçamentos</h5>
-
             <div class="numero laranja">
                 <?= $totalOrcamentos ?>
             </div>
-
         </div>
-
         <div class="card-info">
-
             <h5>Faturamento</h5>
-
             <div class="numero vermelho">
                 R$ <?= number_format($totalFaturamento,2,',','.') ?>
             </div>
-
         </div>
-
     </div>
-
     <div class="painel">
-
         <h3 class="mb-4">
             Últimos Orçamentos
         </h3>
-
         <div class="table-responsive">
-
             <table class="table table-dark table-hover align-middle">
-
                 <thead>
-
                     <tr>
                         <th>ID</th>
                         <th>Cliente</th>
@@ -162,92 +135,57 @@ $ultimosOrcamentos = $pdo->query("
                         <th>Status</th>
                         <th>Data</th>
                     </tr>
-
                 </thead>
-
                 <tbody>
-
                 <?php if(count($ultimosOrcamentos) > 0): ?>
-
                     <?php foreach($ultimosOrcamentos as $orcamento): ?>
-
                         <tr>
-
                             <td>
                                 <?= $orcamento['id'] ?>
                             </td>
-
                             <td>
                                 <?= htmlspecialchars($orcamento['nome'] ?? 'Sem Cliente') ?>
                             </td>
-
                             <td>
                                 R$ <?= number_format($orcamento['total'],2,',','.') ?>
                             </td>
-
                             <td>
-
                                 <?php
-
                                 switch($orcamento['status']){
-
                                     case 'aprovado':
                                         echo '<span class="badge bg-success">Aprovado</span>';
                                     break;
-
                                     case 'reprovado':
                                         echo '<span class="badge bg-danger">Reprovado</span>';
                                     break;
-
                                     case 'enviado':
                                         echo '<span class="badge bg-primary">Enviado</span>';
                                     break;
-
                                     default:
                                         echo '<span class="badge bg-warning text-dark">Rascunho</span>';
                                     break;
                                 }
-
                                 ?>
-
                             </td>
-
                             <td>
                                 <?= date('d/m/Y', strtotime($orcamento['criado_em'])) ?>
                             </td>
-
                         </tr>
-
                     <?php endforeach; ?>
-
                 <?php else: ?>
-
                     <tr>
-
                         <td colspan="5" class="text-center">
-
                             Nenhum orçamento encontrado.
-
                         </td>
-
                     </tr>
-
                 <?php endif; ?>
-
                 </tbody>
-
             </table>
-
         </div>
-
     </div>
-
 </div>
-
 <script src="/sistema-orcamentos/assets/js/menu.js"></script>
 <script src="/sistema-orcamentos/assets/js/dashboard.js"></script>
 <script src="/sistema-orcamentos/assets/js/app.js"></script>
-
-
 </body>
 </html>
