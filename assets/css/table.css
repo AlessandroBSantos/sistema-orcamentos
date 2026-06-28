@@ -1,0 +1,23 @@
+.painel{
+    margin-top:40px;
+    background:var(--card);
+    border-radius:var(--radius);
+    padding:25px;
+    box-shadow:var(--shadow);
+}
+.table{
+    width:100%;
+    border-collapse:collapse;
+}
+.table th{
+    background:#1F2937;
+    padding:15px;
+    text-align:left;
+}
+.table td{
+    padding:15px;
+    border-bottom:1px solid var(--borda);
+}
+.table tr:hover{
+    background:#1F2937;
+}
