@@ -1,5 +1,4 @@
 <button class="menu-toggle" onclick="toggleMenu()">
-    <i class="fa fa-bars"></i>
         <img src="/sistema-orcamentos/assets/img/menu.png" alt="menu" width="32" height="32">
 
 </button>
