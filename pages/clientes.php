@@ -40,85 +40,84 @@ $totalClientes = count($clientes);
 
 <html lang="pt-br">
 
-<head>
+    <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Clientes - LLA Software</title>
+        <title>Clientes - LLA Software</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
 
-<style>
+        <style>
 
-:root{
-    --bg:#0F172A;
-    --menu:#1E293B;
-    --card:#111827;
-    --azul:#06B6D4;
-    --verde:#22C55E;
-    --cinza:#334155;
-}
+            :root{
+                --bg:#0F172A;
+                --menu:#1E293B;
+                --card:#111827;
+                --azul:#06B6D4;
+                --verde:#22C55E;
+                --cinza:#334155;
+            }
 
-body{
-    background:var(--bg);
-    color:white;
-}
+            body{
+                background:var(--bg);
+                color:white;
+            }
 
-.card-dashboard{
-    background:var(--card);
-    border:none;
-    border-radius:15px;
-    padding:20px;
-}
+            .card-dashboard{
+                background:var(--card);
+                border:none;
+                border-radius:15px;
+                padding:20px;
+            }
 
-.table{
-    color:white;
-}
+            .table{
+                color:white;
+            }
 
-.table tbody tr:hover{
-    background:#1e293b;
-}
+            .table tbody tr:hover{
+                background:#1e293b;
+            }
 
-.btn-novo{
-    background:var(--verde);
-    border:none;
-}
+            .btn-novo{
+                background:var(--verde);
+                border:none;
+            }
 
-.btn-novo:hover{
-    opacity:.9;
-}
+            .btn-novo:hover{
+                opacity:.9;
+            }
 
-.form-control{
-    background:#1e293b;
-    border:1px solid #334155;
-    color:white;
-}
+            .form-control{
+                background:#1e293b;
+                border:1px solid #334155;
+                color:white;
+            }
 
-.form-control:focus{
-    background:#1e293b;
-    color:white;
-}
+            .form-control:focus{
+            background:#1e293b;
+            color:white;
+            }
 
-</style>
+            </style>
 
-</head>
+        </head>
 
-<body>
+    <body>
 
-<div class="container-fluid p-4">
+        <div class="container-fluid p-4">
 
-```
-<div class="d-flex justify-content-between align-items-center mb-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
 
-    <h2>
-        <i class="fa fa-users"></i>
-        Clientes
-    </h2>
+            <h2>
+                <i class="fa fa-users"></i>
+                    Clientes
+            </h2>
 
-    <div>
+        <div>
 
         <a href="../dashboard.php"
            class="btn btn-secondary">
@@ -248,13 +247,12 @@ body{
                             </a>
 
                             <a
-    href="excluir_cliente.php?id=<?= $cliente['id'] ?>"
-    class="btn btn-danger btn-sm"
-    onclick="return confirm('Deseja realmente excluir este cliente?')">
+                                href="excluir_cliente.php?id=<?= $cliente['id'] ?>"
+                                class="btn btn-danger btn-sm"
+                                onclick="return confirm('Deseja realmente excluir este cliente?')">
+                                <i class="fa fa-trash"></i>
 
-    <i class="fa fa-trash"></i>
-
-</a>
+                            </a>
 
                         </td>
 
@@ -283,7 +281,6 @@ body{
     </div>
 
 </div>
-```
 
 </div>
 
