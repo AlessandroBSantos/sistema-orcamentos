@@ -1,5 +1,7 @@
 <button class="menu-toggle" onclick="toggleMenu()">
     <i class="fa fa-bars"></i>
+        <img src="/sistema-orcamentos/assets/img/menu.svg" alt="Menu" width="32" height="32">
+
 </button>
 <link rel="stylesheet" href="/sistema-orcamentos/assets/css/menu.css">
 <link rel="stylesheet" href="/sistema-orcamentos/assets/css/style.css">
@@ -10,7 +12,6 @@
     </div>
 
     <div class="menu">
-    <img src="assets/img/menu.svg" alt="Menu" width="32" height="32">
 
         <a href="/sistema-orcamentos/dashboard.php">
             <i class="fa fa-chart-line"></i>
