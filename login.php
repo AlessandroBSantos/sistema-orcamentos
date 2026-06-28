@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>LLA Software - Sistema de OS</title>
+<title>LLA Software - Sistema de Orçamentos</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
@@ -109,7 +109,7 @@ body{
             <i class="fa-solid fa-screwdriver-wrench logo"></i>
 
             <h2 class="mt-3">
-                Sistema de OS
+                Sistema de Orçamentos
             </h2>
 
             <p class="text-muted">
