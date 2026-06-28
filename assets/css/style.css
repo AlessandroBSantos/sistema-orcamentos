@@ -15,8 +15,8 @@ body{
     transition:.3s;
 }
 h1{
-    fonte-size:42px;
-    margin-buttom:10px;
+    font-size:42px;
+    margin-bottom:10px;
 }
 p{
     color:var(--textoCinza);

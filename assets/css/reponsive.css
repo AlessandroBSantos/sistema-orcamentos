@@ -1,0 +1,11 @@
+@media (max-width: 900px) {
+    .card{
+        grid-template-columns:1fr;
+    }
+    .content{
+        padding:20px;
+    }
+    h1{
+        padding:20px;
+    }
+}

@@ -1,0 +1,14 @@
+.btn{
+    border:none;
+    padding: 12px 25px;
+    border-radius:12px;
+    cursor:pointer;
+    transition:.3s;
+}
+.btn-primary{
+    background:var(--azul);
+    color:white;    
+}
+.btn-primary:hover{
+    opacity:.85;
+}
