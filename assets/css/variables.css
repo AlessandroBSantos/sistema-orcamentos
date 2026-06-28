@@ -1,0 +1,15 @@
+:root{
+    --bg:#0F172A;
+    --menu:#1E293B;
+    --card:#111827;
+    --cardHover:#1F2937;
+    --texto:#F8FAFC;
+    --textoCinza:#94A3B8;
+    --azul:#06B6D4;
+    --verde:#22C55E;
+    --laranja:#F59E0B;
+    --vermelho:#EF4444;
+    --borda:#334155;
+    --radius:18px;
+    --shadow:0 15px 35px rgba(0,0,0,.35);
+}
