@@ -1,10 +1,10 @@
 .sidebar{
-    width:250px;
+    width:150px;
     height:100vh;
     background:#1E293B;
     position:fixed;
     top:20;
-    left:250px;
+    left:150px;
     transition:.3s ease;
     z-index:1000;
 }
@@ -20,7 +20,7 @@
 }
 
 .content.menu-aberto{
-    margin-left:250px;
+    margin-left:150px;
 }
 .menu a:hover{
 
