@@ -1,6 +1,6 @@
 <button class="menu-toggle" onclick="toggleMenu()">
     <i class="fa fa-bars"></i>
-        <img src="/sistema-orcamentos/assets/img/menu.svg" alt="Menu" width="32" height="32">
+        <img src="/sistema-orcamentos/assets/img/menu.png" alt="menu" width="32" height="32">
 
 </button>
 <link rel="stylesheet" href="/sistema-orcamentos/assets/css/menu.css">
