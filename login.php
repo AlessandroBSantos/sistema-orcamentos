@@ -132,7 +132,7 @@ body{
 
                 <label class="form-label">
                     E-mail
-                </label>
+                </label> 
 
                 <div class="input-group">
 
