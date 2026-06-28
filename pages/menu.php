@@ -10,6 +10,7 @@
     </div>
 
     <div class="menu">
+    <img src="assets/img/menu.svg" alt="Menu" width="32" height="32">
 
         <a href="/sistema-orcamentos/dashboard.php">
             <i class="fa fa-chart-line"></i>
