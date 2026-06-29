@@ -70,6 +70,7 @@ $ultimosOrcamentos = $pdo->query("
 
 <title>Dashboard - LLA Software</title>
 
+<link rel="stylesheet" href="/sistema-orcamentos/assets/css/menu.css">
 </head>
 
 <body>
