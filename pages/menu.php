@@ -4,7 +4,7 @@
 
         <button class="menu-toggle" onclick="toggleMenu()">
 
-            <img src="/sistema-orcamentos/assets/icons/menu.svg"
+            <img src="/sistema-orcamentos/assets/icons/menu.png"
                  class="menu-icon"
                  alt="Menu">
 
