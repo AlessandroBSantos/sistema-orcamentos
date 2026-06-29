@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     window.toggleMenu=function(){
 
-        sidebar.classList.toggle("ativo");
+        sidebar.classList.toggle("desativado");
 
         content.classList.toggle("menu-aberto");
 
