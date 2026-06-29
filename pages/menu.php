@@ -10,13 +10,6 @@
 
         </button>
 
-        <div class="logo-texto">
-
-            <span>LLA</span>
-
-            <small>Software</small>
-
-        </div>
 
     </div>
 
