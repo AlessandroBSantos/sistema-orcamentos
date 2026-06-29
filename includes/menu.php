@@ -8,8 +8,7 @@ onclick="toggleMenu()">
 </button>
 
 <div
-class="sidebar"
-id="sidebar">
+class="sidebar" id="sidebar">
 
     MENU
 

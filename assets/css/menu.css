@@ -1,39 +1,40 @@
 .sidebar{
-    width:150px;
-    height:100vh;
-    background:#1E293B;
+
     position:fixed;
-    top:20;
-    left:150px;
+
+    top:0;
+
+    left:-260px;
+
+    width:260px;
+
+    height:100vh;
+
+    background:#111827;
+
     transition:.3s ease;
+
     z-index:1000;
+
 }
 
 .sidebar.ativo{
-    left:0;
-}
 
+    left:0;
+
+}
 .content{
+
     margin-left:0;
-    padding:50px;
+
     transition:.3s ease;
+
+    padding:30px;
+
 }
 
 .content.menu-aberto{
-    margin-left:150px;
-}
-.menu a:hover{
 
-    background:#1E293B;
+    margin-left:260px;
 
-    color:#38BDF8;
 }
-.logo{
-    color:#FFFFFF;
-    font-weight:500;
-    margin: top 30px;;
-}
-
-.logo span{
-    color:#22D3EE;
-} 
