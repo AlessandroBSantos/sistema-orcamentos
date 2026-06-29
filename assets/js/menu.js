@@ -6,9 +6,9 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     window.toggleMenu=function(){
 
-        sidebar.classList.toggle("desativado");
+        sidebar.classList.toggle("inativo");
 
-        content.classList.toggle("menu-aberto");
+        content.classList.toggle("menu-fechado");
 
     }
 
