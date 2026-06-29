@@ -1,15 +1,42 @@
 :root{
+
+    /* Fundo */
+
     --bg:#0F172A;
-    --menu:#1E293B;
-    --card:#111827;
-    --cardHover:#1F2937;
-    --texto:#F8FAFC;
-    --textoCinza:#94A3B8;
-    --azul:#06B6D4;
-    --verde:#22C55E;
-    --laranja:#F59E0B;
-    --vermelho:#EF4444;
-    --borda:#334155;
+
+    --sidebar:#111827;
+
+    --card:#1E293B;
+
+    --card-hover:#293548;
+
+    --border:#334155;
+
+    /* Texto */
+
+    --text:#F8FAFC;
+
+    --text-light:#94A3B8;
+
+    /* Cores */
+
+    --primary:#06B6D4;
+
+    --success:#22C55E;
+
+    --warning:#F59E0B;
+
+    --danger:#EF4444;
+
+    --white:#FFFFFF;
+
+    /* Layout */
+
     --radius:18px;
-    --shadow:0 15px 35px rgba(0,0,0,.35);
+
+    --transition:.3s ease;
+
+    --shadow:
+        0 10px 30px rgba(0,0,0,.30);
+
 }

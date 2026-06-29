@@ -1,50 +1,16 @@
-<div class="sidebar" id="sidebar">
+<button
+class="menu-toggle"
+onclick="toggleMenu()">
 
-    <div class="logo">
-        <button class="menu-toggle" onclick="toggleMenu()">
-            <i class="fa fa-bars"></i>
-        </button>
+    <img
+    src="/sistema-orcamentos/assets/icons/menu.svg">
 
-        <span>LLA</span> Software
-    </div>
+</button>
 
-    <div class="menu">
+<div
+class="sidebar"
+id="sidebar">
 
-        <a href="/sistema-orcamentos/dashboard.php">
-            <i class="fa fa-chart-line"></i>
-            Dashboard
-        </a>
-
-        <a href="/sistema-orcamentos/pages/clientes.php">
-            <i class="fa fa-users"></i>
-            Clientes
-        </a>
-
-        <a href="/sistema-orcamentos/pages/produtos.php">
-            <i class="fa fa-box"></i>
-            Produtos
-        </a>
-
-        <a href="/sistema-orcamentos/pages/orcamentos.php">
-            <i class="fa fa-file-invoice-dollar"></i>
-            Orçamentos
-        </a>
-
-        <a href="/sistema-orcamentos/pages/financeiro.php">
-            <i class="fa fa-chart-pie"></i>
-            Financeiro
-        </a>
-
-        <a href="/sistema-orcamentos/pages/configuracoes.php">
-            <i class="fa fa-cog"></i>
-            Configurações
-        </a>
-
-        <a href="/sistema-orcamentos/logout.php">
-            <i class="fa fa-sign-out-alt"></i>
-            Sair
-        </a>
-
-    </div>
+    MENU
 
 </div>
