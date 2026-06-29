@@ -1,15 +1,18 @@
-document.addEventListener("DOMContentLoaded",()=>{
+document.addEventListener("DOMContentLoaded", function () {
 
-    const sidebar=document.getElementById("sidebar");
+    const sidebar = document.getElementById("sidebar");
+    const content = document.getElementById("content");
 
-    const content=document.getElementById("content");
+    // Garante que a página inicie com o menu fechado
+    sidebar.classList.remove("ativo");
+    content.classList.remove("menu-aberto");
 
-    window.toggleMenu=function(){
+    // Função global chamada pelo botão
+    window.toggleMenu = function () {
 
-        sidebar.classList.toggle("inativo");
+        sidebar.classList.toggle("ativo");
+        content.classList.toggle("menu-aberto");
 
-        content.classList.toggle("menu-fechado");
-
-    }
+    };
 
 });
