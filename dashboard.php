@@ -78,4 +78,7 @@ $ultimosOrcamentos = $pdo->query("
 <?php include 'includes/menu.php'; ?>
 
 </body>
+
+<script src="/sistema-orcamentos/assets/js/menu.js"></script>
+
 </html>
